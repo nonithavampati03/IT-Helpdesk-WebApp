@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="admin-container">
+        <div class="tab">
+            <button class="tablinks" onclick="document.getElementById('Users').style.display='block';">Users</button>
+        </div>
+        
+        <div id="Users" class="tabcontent">
+            <table id="usersTable">
+                <thead>
+                    <tr>
+                        <th>UserID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- User entries will be here -->
+                </tbody>
+            </table>
+            <div class="actions">
+                <button class="action-btn" onclick="document.getElementById('addUserModal').style.display='block'">Add User</button>
+                <!-- Additional buttons for Delete and Refresh can be added similarly -->
+                <button class="action-btn">Delete User</button>
+            </div>
+        </div>
+            <div class="actions">
+
+                <button class="action-btn" onclick="window.location.href='visualise.html';">Analyse Service Requests</button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals for Users -->
+   <!-- Form for adding a new user -->
+<div id="addUserModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="document.getElementById('addUserModal').style.display='none'">&times;</span>
+        <h2>Add New User</h2>
+        <form id="addUserForm">
+            <label for="addUserName">Name:</label>
+            <input type="text" id="addUserName" name="name" required>
+            
+            <label for="addUserEmail">Email:</label>
+            <input type="email" id="addUserEmail" name="email" required>
+
+            <label for="addUserPassword">Password:</label>
+            <input type="password" id="addUserPassword" name="password" required>
+            
+            <label for="addUserRole">Role:</label>
+            <select id="addUserRole" name="role">
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+                <option value="supervisor">Supervisor</option>
+            </select>
+            
+            <button type="button" onclick="document.getElementById('addUserModal').style.display='none'">Cancel</button>
+            <button type="submit">Add User</button>
+        </form>
+    </div>
+</div>
+
+
+
+<script src="js/admin.js"></script>
+</body>
+</html>
